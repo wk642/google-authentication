@@ -15,7 +15,7 @@ Learn how to setup Google Authentication
 8. `npm run dev` Make sure you have a basic react up and running.
 
     For Google Authentication utilizing [react oauth2google docs](https://www.npmjs.com/package/@react-oauth/google)
-  9. Run this to install `npm install @react-oauth/google@latest react-router`
+  9. Run this to install `npm install @react-oauth/google@latest react-router jwt-decode`
   10. Goto http://console.cloud.google.com/ to set up a free account
   11. Once you create a free account, you are allowed to have 11 apps a quota, I just renamed the first one it automatically created. Or you can create a new one.
   - [ ] 11.a. To rename
@@ -76,7 +76,9 @@ createRoot(document.getElementById('root')).render(
 ```
 30. Goto the page you are wanting the login page to be and add the following
 ``` 
-export default function GoogleLanding() { 
+import { GoogleLogin } from "@react-oauth/google";
+
+export function GoogleLanding() { 
   return (
     <>
       {/* renders the google login form */}
@@ -111,4 +113,11 @@ function App() {
 export default App
 ```
 
-At this point you should see the Google login button and when you click on it, it should allow you to login and it will display your credentials info in your console. However, it does not display the name, email etc, because it is in a json formatt inside `credentials`
+  At this point you should see the Google login button and when you click on it, it should allow you to login and it will display your credentials info in your console. However, it does not display the name, email etc, because it is in a json formatt inside `credentials`  
+  
+32. To see credentials at the top of your login page under `import { GoogleLogin } from "@react-oauth/google";` add `import { jwtDecode } from "jwt-decode";`
+
+33. To log it in the console, add           `console.log(jwtDecode(loginInfo.credential));`
+ under `console.log(loginInfo);` in onSuccess.
+
+34. Now when you login, you'll be able to see all the credential information.

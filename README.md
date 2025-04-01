@@ -1,7 +1,7 @@
 # Google Authentication with React 
 
 ## Objective
-Learn how to setup Google Authentication
+Learn how to setup Google Authentication using this [video](https://www.youtube.com/watch?v=GuHN_ZqHExs)
 
 ## Steps
 1. setup a React app with Vite

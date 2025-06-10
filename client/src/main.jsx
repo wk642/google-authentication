@@ -3,8 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import "dotenv/config";
 
-const CLIENT_ID = "132242362761-cp87epcf24oivlvtrt9tb0r70jbgkprd.apps.googleusercontent.com";
+var CLIENT_ID= import.meta.env.VITE_CLIENT_ID;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
